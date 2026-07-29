@@ -1,0 +1,164 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.58in,top=0.52in,bottom=0.52in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{plex-sans}
+\usepackage{plex-mono}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\definecolor{ink}{HTML}{181818}
+\definecolor{muted}{HTML}{5D6268}
+\definecolor{accent}{HTML}{DCFFFE}
+\definecolor{rule}{HTML}{A7D1D1}
+\definecolor{paper}{HTML}{FBFAF7}
+\definecolor{tealink}{HTML}{167C80}
+
+\pagecolor{paper}
+\color{ink}
+\setstretch{1.30}
+\hypersetup{colorlinks=true, urlcolor=tealink, linkcolor=ink, pdfborder={0 0 0}, pdftitle={Ricky Miller - Resume}, pdfauthor={Ricky Miller}, pdfsubject={Senior Software Engineer Resume}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.5pt}
+\setlist[itemize]{leftmargin=1.15em,itemsep=5pt,topsep=5pt,parsep=0pt}
+\setlength{\emergencystretch}{2em}
+
+\newcommand{\headingfont}{\plexmono}
+\newcommand{\sectionrule}{\vspace{2pt}\color{rule}\hrule height 0.6pt\color{ink}\vspace{7pt}}
+\newcommand{\role}[3]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    {\headingfont\bfseries\large #1} & {\headingfont\small\color{muted} #3}\\[-1pt]
+    {\headingfont\bfseries\color{tealink} #2} &
+  \end{tabularx}\vspace{1pt}
+}
+\newcommand{\smallrole}[3]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    {\headingfont\bfseries #1 \textcolor{muted}{@} \textcolor{tealink}{#2}} & {\headingfont\small\color{muted} #3}
+  \end{tabularx}\vspace{1pt}
+}
+
+\titleformat{\section}
+  {\headingfont\bfseries\large\color{ink}}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{11pt}{1pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[R]{\headingfont\scriptsize\color{muted} ricky.codes \quad \thepage/\pageref{LastPage}}
+
+\begin{document}
+
+{\headingfont\bfseries\fontsize{25}{27}\selectfont Ricky Miller}\hfill
+{\headingfont\small\color{muted} Ottawa, Ontario, Canada}
+
+\vspace{2pt}
+{\headingfont\small
+\href{mailto:hello@ricky.codes}{hello@ricky.codes}
+\quad\textcolor{tealink}{•}\quad
+\href{https://ricky.codes}{ricky.codes}
+\quad\textcolor{tealink}{•}\quad
+\href{https://github.com/rickycodes}{github.com/rickycodes}}
+
+\vspace{6pt}
+{\color{tealink}\hrule height 1.2pt}
+\vspace{7pt}
+
+{\headingfont\bfseries\fontsize{14}{16}\selectfont Senior Software Engineer}
+
+Senior software engineer with 15+ years of experience building complex web and mobile applications, shared platforms, and developer infrastructure. Comfortable moving between product development, architecture, release engineering, and engineering productivity, with a focus on solving difficult technical problems and improving how teams build software.
+
+\section{Core Technologies}
+\sectionrule
+\textbf{Languages:} JavaScript, TypeScript, Rust, Python, Bash, PHP\par\vspace{4pt}
+\textbf{Frameworks:} React, React Native, Node.js, HapiJS\par\vspace{4pt}
+\textbf{Engineering:} GitHub Actions, CI/CD, release engineering, test automation, Linux, Docker, REST APIs
+
+\section{Professional Experience}
+\sectionrule
+
+\role{Senior Software Engineer}{MetaMask}{Nov 2019 -- Oct 2024}
+Worked across MetaMask Mobile, Extension, Core, shared libraries, and engineering infrastructure, contributing to both end-user features and the internal systems used to build and release a major cryptocurrency wallet.
+
+\begin{itemize}
+  \item Authored \textbf{447 pull requests} across \textbf{21 repositories}, with \textbf{376 merged}, spanning customer-facing applications, shared libraries, and engineering infrastructure.
+  \item Helped deliver \textbf{EIP-1559 transaction support}, contributing to controller logic, gas estimation, typed transactions, speed-up and cancellation flows, automated testing, and integration into MetaMask Mobile.
+  \item Built production features and reliability improvements across Mobile and Extension, addressing wallet state, transactions, networking, onboarding, browser compatibility, and platform-specific behavior.
+  \item Modernized engineering systems through GitHub Actions, release automation, npm publishing, monorepo tooling, and reusable workflows adopted across numerous repositories.
+  \item Led major framework and dependency upgrades, including the React 16 migration for MetaMask Extension, while preserving application stability and automated test coverage.
+  \item Collaborated across Mobile, Extension, Core, QA, Security, Product, and Infrastructure in a highly collaborative, security-sensitive environment.
+\end{itemize}
+
+\textbf{Selected technologies:} JavaScript, TypeScript, React Native, React, Node.js, GitHub Actions, Ethereum
+
+\vspace{3pt}
+\role{Senior Developer}{:Resolver}{Nov 2018 -- Nov 2019}
+Developed enterprise governance, risk, compliance, and incident-management software.
+\begin{itemize}
+  \item Built full-stack features across React applications and HapiJS services.
+  \item Designed REST APIs, database migrations, and customer-facing functionality.
+  \item Improved automated testing, developer tooling, and application reliability.
+\end{itemize}
+
+\newpage
+
+\section{Professional Experience \textnormal{\color{muted}\small continued}}
+\sectionrule
+
+\role{Senior Developer}{NowSecure}{Jul 2015 -- Apr 2018}
+Developed enterprise software supporting Android and iOS mobile security analysis.
+\begin{itemize}
+  \item Built React applications for enterprise customers and security researchers.
+  \item Integrated client applications with backend security-analysis services.
+  \item Improved reusable UI architecture and engineering workflows.
+\end{itemize}
+
+\vspace{4pt}
+\role{Senior Developer}{OneMethod}{Sep 2014 -- Jul 2015}
+Developed digital products and interactive web applications for enterprise clients.
+\begin{itemize}
+  \item Built reusable AngularJS and Backbone applications.
+  \item Introduced Selenium-based browser testing to improve quality and reduce regressions.
+\end{itemize}
+
+\vspace{4pt}
+\smallrole{Developer}{MetaLab}{Apr 2014 -- Sep 2014}
+Developed production e-commerce features for Walmart Canada using JavaScript and Node.js.
+
+\vspace{5pt}
+\smallrole{Developer}{High Road Communications}{Nov 2010 -- Jul 2013}
+Developed web applications, API integrations, and interactive marketing platforms for enterprise clients.
+
+\section{Selected Projects}
+\sectionrule
+
+{\headingfont\bfseries Oysterclip \textcolor{muted}{(Rust)}}\\[-1pt]
+Privacy-focused clipboard manager supporting local text and image history with a native desktop interface.
+
+\vspace{5pt}
+{\headingfont\bfseries Retrorecord \textcolor{muted}{(Rust)}}\\[-1pt]
+Rust reimplementation of a Raspberry Pi gameplay recorder exploring systems programming, performance, and hardware integration.
+
+\vspace{5pt}
+{\headingfont\bfseries Open Source}\\[-1pt]
+Contributor to Hyper, Beaker Browser, stdweb, winamp2-js, and other open-source projects spanning web technologies, Rust, and developer tooling.
+
+\section{Community}
+\sectionrule
+
+{\headingfont\bfseries Co-founder \textcolor{muted}{@} \textcolor{tealink}{Toronto NodeSchool}}\\[-1pt]
+Co-founded the Toronto chapter of NodeSchool, organizing JavaScript workshops and mentoring developers entering the Node.js ecosystem.
+
+\vfill
+{\headingfont\small\color{muted} References and additional project details available at \href{https://ricky.codes}{ricky.codes}.}
+
+\end{document}
