@@ -35,31 +35,31 @@ PREAMBLE = r"""\documentclass[10pt,letterpaper]{article}
 
 \pagecolor{paper}
 \color{ink}
-\setstretch{1.30}
+\setstretch{1.18}
 \hypersetup{colorlinks=true, urlcolor=tealink, linkcolor=ink, pdfborder={0 0 0}, pdftitle={Ricky Miller - Resume}, pdfauthor={Ricky Miller}, pdfsubject={Senior Software Engineer Resume}}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3.5pt}
-\setlist[itemize]{leftmargin=1.15em,itemsep=5pt,topsep=5pt,parsep=0pt}
+\setlength{\parskip}{2.5pt}
+\setlist[itemize]{leftmargin=1.15em,itemsep=3.5pt,topsep=3.5pt,parsep=0pt}
 \setlength{\emergencystretch}{2em}
 
 \newcommand{\headingfont}{\plexmono}
-\newcommand{\sectionrule}{\vspace{2pt}\color{rule}\hrule height 0.6pt\color{ink}\vspace{7pt}}
+\newcommand{\sectionrule}{\vspace{1pt}\color{rule}\hrule height 0.6pt\color{ink}\vspace{5pt}}
 \newcommand{\role}[3]{%
   \begin{tabularx}{\textwidth}{@{}X r@{}}
     {\headingfont\bfseries\large #1} & {\headingfont\small\color{muted} #3}\\[-1pt]
     {\headingfont\bfseries\color{tealink} #2} &
-  \end{tabularx}\vspace{1pt}
+  \end{tabularx}\vspace{0.5pt}
 }
 \newcommand{\smallrole}[3]{%
   \begin{tabularx}{\textwidth}{@{}X r@{}}
     {\headingfont\bfseries #1 \textcolor{muted}{@} \textcolor{tealink}{#2}} & {\headingfont\small\color{muted} #3}
-  \end{tabularx}\vspace{1pt}
+  \end{tabularx}\vspace{0.5pt}
 }
 
 \titleformat{\section}
   {\headingfont\bfseries\large\color{ink}}
   {}{0pt}{}
-\titlespacing*{\section}{0pt}{11pt}{1pt}
+\titlespacing*{\section}{0pt}{9pt}{1pt}
 
 \pagestyle{fancy}
 \fancyhf{}
