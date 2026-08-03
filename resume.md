@@ -9,7 +9,7 @@ title: Senior Software Engineer
 
 ## Summary
 
-Senior software engineer with 15+ years of experience building complex web and mobile applications, shared platforms, and developer infrastructure. Comfortable moving between product development, architecture, release engineering, and engineering productivity, with a focus on solving difficult technical problems and improving how teams build software.
+Senior software engineer with 15+ years building web and mobile products, shared platforms, and developer infrastructure. Product engineering, architecture, release engineering, developer productivity. Strongest work: complex systems, difficult bugs, better engineering flow.
 
 ## Core Technologies
 
@@ -23,30 +23,30 @@ Senior software engineer with 15+ years of experience building complex web and m
 
 ### Senior Software Engineer | MetaMask | Nov 2019 -- Oct 2024
 
-Worked across MetaMask Mobile, Extension, Core, shared libraries, and engineering infrastructure, contributing to both end-user features and the internal systems used to build and release a major cryptocurrency wallet.
+Built MetaMask Mobile, Extension, Core, shared libraries, and engineering infrastructure for major cryptocurrency wallet.
 
-- Authored **447 pull requests** across **21 repositories**, with **376 merged**, spanning customer-facing applications, shared libraries, and engineering infrastructure.
-- Helped deliver **EIP-1559 transaction support**, contributing to controller logic, gas estimation, typed transactions, speed-up and cancellation flows, automated testing, and integration into MetaMask Mobile.
-- Built production features and reliability improvements across Mobile and Extension, addressing wallet state, transactions, networking, onboarding, browser compatibility, and platform-specific behavior.
-- Modernized engineering systems through GitHub Actions, release automation, npm publishing, monorepo tooling, and reusable workflows adopted across numerous repositories.
-- Led major framework and dependency upgrades, including the React 16 migration for MetaMask Extension, while preserving application stability and automated test coverage.
-- Collaborated across Mobile, Extension, Core, QA, Security, Product, and Infrastructure in a highly collaborative, security-sensitive environment.
+- Authored **447 pull requests** across **21 repositories**; merged **376** across products, shared libraries, and infrastructure.
+- Delivered **EIP-1559 transaction support**: controller logic, gas estimation, typed transactions, speed-up/cancellation flows, tests, MetaMask Mobile integration.
+- Shipped Mobile and Extension features across wallet state, transactions, networking, onboarding, browser compatibility, and platform behavior.
+- Modernized delivery systems with GitHub Actions, release automation, npm publishing, monorepo tooling, and reusable cross-repository workflows.
+- Led framework and dependency upgrades, including MetaMask Extension’s React 16 migration; preserved stability and test coverage.
+- Worked across Mobile, Extension, Core, QA, Security, Product, and Infrastructure in security-sensitive systems.
 
 **Selected technologies:** JavaScript, TypeScript, React Native, React, Node.js, GitHub Actions, Ethereum
 
 ### Senior Developer | :Resolver | Nov 2018 -- Nov 2019
 
-Developed enterprise governance, risk, compliance, and incident-management software.
+Built enterprise governance, risk, compliance, and incident-management software.
 
-- Built full-stack features across React applications and HapiJS services.
-- Designed REST APIs, database migrations, and customer-facing functionality.
-- Improved automated testing, developer tooling, and application reliability.
+- Shipped full-stack features across React applications and HapiJS services.
+- Designed REST APIs, database migrations, and customer-facing workflows.
+- Improved test automation, developer tooling, and application reliability.
 
 <!-- pagebreak -->
 
 ### Senior Developer | NowSecure | Jul 2015 -- Apr 2018
 
-Developed enterprise software supporting Android and iOS mobile security analysis.
+Built enterprise software for Android and iOS security analysis.
 
 - Built React applications for enterprise customers and security researchers.
 - Integrated client applications with backend security-analysis services.
@@ -54,35 +54,35 @@ Developed enterprise software supporting Android and iOS mobile security analysi
 
 ### Senior Developer | OneMethod | Sep 2014 -- Jul 2015
 
-Developed digital products and interactive web applications for enterprise clients.
+Built digital products and interactive web applications for enterprise clients.
 
 - Built reusable AngularJS and Backbone applications.
-- Introduced Selenium-based browser testing to improve quality and reduce regressions.
+- Introduced Selenium browser testing; reduced regressions and improved release confidence.
 
 ### Developer | MetaLab | Apr 2014 -- Sep 2014
 
-Developed production e-commerce features for Walmart Canada using JavaScript and Node.js.
+Built production e-commerce features for Walmart Canada with JavaScript and Node.js.
 
 ### Developer | High Road Communications | Nov 2010 -- Jul 2013
 
-Developed web applications, API integrations, and interactive marketing platforms for enterprise clients.
+Built web applications, API integrations, and interactive marketing platforms for enterprise clients.
 
 ## Selected Projects
 
 ### Oysterclip (Rust)
 
-Privacy-focused clipboard manager supporting local text and image history with a native desktop interface.
+Privacy-focused clipboard manager. Local text and image history. Native desktop interface.
 
 ### Retrorecord (Rust)
 
-Rust reimplementation of a Raspberry Pi gameplay recorder exploring systems programming, performance, and hardware integration.
+Rust reimplementation of Raspberry Pi gameplay recorder. Systems programming, performance, hardware integration.
 
 ### Open Source
 
-Contributor to Hyper, Beaker Browser, stdweb, winamp2-js, and other open-source projects spanning web technologies, Rust, and developer tooling.
+Contributor to Hyper, Beaker Browser, stdweb, winamp2-js, and other open-source web, Rust, and developer-tooling projects.
 
 ## Community
 
 ### Co-founder @ Toronto NodeSchool
 
-Co-founded the Toronto chapter of NodeSchool, organizing JavaScript workshops and mentoring developers entering the Node.js ecosystem.
+Co-founded Toronto NodeSchool. Organized JavaScript workshops. Mentored developers entering Node.js ecosystem.
