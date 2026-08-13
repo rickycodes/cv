@@ -10,11 +10,53 @@ SOURCE = ROOT / "cv.md"
 OUTPUT = ROOT / "ricky-miller-cv.tex"
 
 
-PREAMBLE = r"""\documentclass[10pt,letterpaper]{article}
-\usepackage[margin=0.58in,top=0.52in,bottom=0.52in]{geometry}
+STYLE = {
+    # Fonts
+    "body_font_package": "plex-sans",
+    "heading_font_package": "plex-mono",
+    "heading_font_command": r"\plexmono",
+    # Page
+    "document_font_size": "10pt",
+    "paper_size": "letterpaper",
+    "margin": "0.58in",
+    "top_margin": "0.52in",
+    "bottom_margin": "0.52in",
+    # Colors
+    "ink": "181818",
+    "muted": "5D6268",
+    "accent": "DCFFFE",
+    "rule": "A7D1D1",
+    "paper": "FBFAF7",
+    "teal": "167C80",
+    # Typography and spacing
+    "line_spacing": "1.18",
+    "paragraph_spacing": "2.5pt",
+    "list_left_margin": "1.15em",
+    "list_item_spacing": "3.5pt",
+    "emergency_stretch": "2em",
+    "name_font_size": "25",
+    "name_line_height": "27",
+    "title_font_size": "14",
+    "title_line_height": "16",
+    "section_before": "9pt",
+    "section_after": "1pt",
+    "section_rule_before": "1pt",
+    "rule_thickness": "0.6pt",
+    "section_rule_after": "5pt",
+    "header_rule_thickness": "1.2pt",
+    "header_rule_before": "6pt",
+    "header_rule_after": "7pt",
+    "role_gap": "4pt",
+    "project_gap": "5pt",
+    "entry_baseline_adjustment": "-1pt",
+}
+
+
+PREAMBLE_TEMPLATE = r"""\documentclass[@DOCUMENT_FONT_SIZE@,@PAPER_SIZE@]{article}
+\usepackage[margin=@MARGIN@,top=@TOP_MARGIN@,bottom=@BOTTOM_MARGIN@]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage[sfdefault]{plex-sans}
-\usepackage{plex-mono}
+\usepackage[sfdefault]{@BODY_FONT_PACKAGE@}
+\usepackage{@HEADING_FONT_PACKAGE@}
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -26,27 +68,27 @@ PREAMBLE = r"""\documentclass[10pt,letterpaper]{article}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 
-\definecolor{ink}{HTML}{181818}
-\definecolor{muted}{HTML}{5D6268}
-\definecolor{accent}{HTML}{DCFFFE}
-\definecolor{rule}{HTML}{A7D1D1}
-\definecolor{paper}{HTML}{FBFAF7}
-\definecolor{tealink}{HTML}{167C80}
+\definecolor{ink}{HTML}{@INK@}
+\definecolor{muted}{HTML}{@MUTED@}
+\definecolor{accent}{HTML}{@ACCENT@}
+\definecolor{rule}{HTML}{@RULE@}
+\definecolor{paper}{HTML}{@PAPER@}
+\definecolor{tealink}{HTML}{@TEAL@}
 
 \pagecolor{paper}
 \color{ink}
-\setstretch{1.18}
+\setstretch{@LINE_SPACING@}
 \hypersetup{colorlinks=true, urlcolor=tealink, linkcolor=ink, pdfborder={0 0 0}, pdftitle={Ricky Miller - CV}, pdfauthor={Ricky Miller}, pdfsubject={Senior Software Engineer CV}}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{2.5pt}
-\setlist[itemize]{leftmargin=1.15em,itemsep=3.5pt,topsep=3.5pt,parsep=0pt}
-\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{@PARAGRAPH_SPACING@}
+\setlist[itemize]{leftmargin=@LIST_LEFT_MARGIN@,itemsep=@LIST_ITEM_SPACING@,topsep=@LIST_ITEM_SPACING@,parsep=0pt}
+\setlength{\emergencystretch}{@EMERGENCY_STRETCH@}
 
-\newcommand{\headingfont}{\plexmono}
-\newcommand{\sectionrule}{\vspace{1pt}\color{rule}\hrule height 0.6pt\color{ink}\vspace{5pt}}
+\newcommand{\headingfont}{@HEADING_FONT_COMMAND@}
+\newcommand{\sectionrule}{\vspace{@SECTION_RULE_BEFORE@}\color{rule}\hrule height @RULE_THICKNESS@\color{ink}\vspace{@SECTION_RULE_AFTER@}}
 \newcommand{\role}[3]{%
   \begin{tabularx}{\textwidth}{@{}X r@{}}
-    {\headingfont\bfseries\large #1} & {\headingfont\small\color{muted} #3}\\[-1pt]
+    {\headingfont\bfseries\large #1} & {\headingfont\small\color{muted} #3}\\[@ENTRY_BASELINE_ADJUSTMENT@]
     {\headingfont\bfseries\color{tealink} #2} &
   \end{tabularx}\vspace{0.5pt}
 }
@@ -59,7 +101,7 @@ PREAMBLE = r"""\documentclass[10pt,letterpaper]{article}
 \titleformat{\section}
   {\headingfont\bfseries\large\color{ink}}
   {}{0pt}{}
-\titlespacing*{\section}{0pt}{9pt}{1pt}
+\titlespacing*{\section}{0pt}{@SECTION_BEFORE@}{@SECTION_AFTER@}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -76,6 +118,17 @@ FOOTER = r"""
 
 \end{document}
 """
+
+
+def build_preamble():
+    """Apply the configurable style values to the LaTeX preamble."""
+    replacements = {
+        key.upper(): value for key, value in STYLE.items()
+    }
+    preamble = PREAMBLE_TEMPLATE
+    for key, value in replacements.items():
+        preamble = preamble.replace(f"@{key}@", str(value))
+    return preamble
 
 
 def latex_escape(text: str) -> str:
@@ -172,7 +225,7 @@ def render_body(lines):
             role, company, dates = (inline(value) for value in match.groups())
             if section == "Professional Experience":
                 if not first_experience:
-                    output.append("\\vspace{4pt}")
+                    output.append(f"\\vspace{{{STYLE['role_gap']}}}")
                 command = "smallrole" if company in {"MetaLab", "High Road Communications"} else "role"
                 output.append(f"\\{command}{{{role}}}{{{company}}}{{{dates}}}")
                 first_experience = False
@@ -184,14 +237,18 @@ def render_body(lines):
             title = match.group(1)
             if section == "Selected Projects":
                 if not first_project:
-                    output.append("\\vspace{5pt}")
-                output.append(f"{{\\headingfont\\bfseries {inline(title)}}}\\\\[-1pt]")
+                    output.append(f"\\vspace{{{STYLE['project_gap']}}}")
+                output.append(
+                    f"{{\\headingfont\\bfseries {inline(title)}}}"
+                    f"\\\\[{STYLE['entry_baseline_adjustment']}]"
+                )
                 first_project = False
             elif section == "Community":
                 name, organization = title.split(" @ ", 1)
                 output.append(
                     f"{{\\headingfont\\bfseries {inline(name)} "
-                    f"\\textcolor{{muted}}{{@}} \\textcolor{{tealink}}{{{inline(organization)}}}}}\\\\[-1pt]"
+                    f"\\textcolor{{muted}}{{@}} \\textcolor{{tealink}}{{{inline(organization)}}}}}"
+                    f"\\\\[{STYLE['entry_baseline_adjustment']}]"
                 )
             continue
 
@@ -217,13 +274,17 @@ def main():
         f"\\href{{{metadata['github']}}}{{{metadata['github'].removeprefix('https://')}}}"
     )
     header = (
-        f"{{\\headingfont\\bfseries\\fontsize{{25}}{{27}}\\selectfont {inline(metadata['name'])}}}\\hfill\n"
+        f"{{\\headingfont\\bfseries\\fontsize{{{STYLE['name_font_size']}}}"
+        f"{{{STYLE['name_line_height']}}}\\selectfont {inline(metadata['name'])}}}\\hfill\n"
         f"{{\\headingfont\\small\\color{{muted}} {inline(metadata['location'])}}}\n\n"
         f"\\vspace{{2pt}}\n{{\\headingfont\\small\n{contact}}}\n\n"
-        f"\\vspace{{6pt}}\n{{\\color{{tealink}}\\hrule height 1.2pt}}\n\\vspace{{7pt}}\n\n"
-        f"{{\\headingfont\\bfseries\\fontsize{{14}}{{16}}\\selectfont {inline(metadata['title'])}}}\n\n"
+        f"\\vspace{{{STYLE['header_rule_before']}}}\n"
+        f"{{\\color{{tealink}}\\hrule height {STYLE['header_rule_thickness']}}}\n"
+        f"\\vspace{{{STYLE['header_rule_after']}}}\n\n"
+        f"{{\\headingfont\\bfseries\\fontsize{{{STYLE['title_font_size']}}}"
+        f"{{{STYLE['title_line_height']}}}\\selectfont {inline(metadata['title'])}}}\n\n"
     )
-    OUTPUT.write_text(PREAMBLE + header + render_body(lines) + FOOTER)
+    OUTPUT.write_text(build_preamble() + header + render_body(lines) + FOOTER)
     print(f"Generated {OUTPUT}")
 
 
