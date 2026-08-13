@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a résumé-focused Markdown report from normalized pull requests."""
+"""Generate a CV-focused Markdown report from normalized pull requests."""
 
 import argparse
 import json

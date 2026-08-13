@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Generate the LaTeX resume from resume.md."""
+"""Generate the LaTeX CV from cv.md."""
 
 from pathlib import Path
 import re
 
 
 ROOT = Path(__file__).resolve().parent
-SOURCE = ROOT / "resume.md"
-OUTPUT = ROOT / "ricky-miller-resume.tex"
+SOURCE = ROOT / "cv.md"
+OUTPUT = ROOT / "ricky-miller-cv.tex"
 
 
 PREAMBLE = r"""\documentclass[10pt,letterpaper]{article}
@@ -36,7 +36,7 @@ PREAMBLE = r"""\documentclass[10pt,letterpaper]{article}
 \pagecolor{paper}
 \color{ink}
 \setstretch{1.18}
-\hypersetup{colorlinks=true, urlcolor=tealink, linkcolor=ink, pdfborder={0 0 0}, pdftitle={Ricky Miller - Resume}, pdfauthor={Ricky Miller}, pdfsubject={Senior Software Engineer Resume}}
+\hypersetup{colorlinks=true, urlcolor=tealink, linkcolor=ink, pdfborder={0 0 0}, pdftitle={Ricky Miller - CV}, pdfauthor={Ricky Miller}, pdfsubject={Senior Software Engineer CV}}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2.5pt}
 \setlist[itemize]{leftmargin=1.15em,itemsep=3.5pt,topsep=3.5pt,parsep=0pt}
@@ -95,7 +95,7 @@ def latex_escape(text: str) -> str:
 
 
 def inline(text: str) -> str:
-    """Convert the small Markdown subset used by the resume."""
+    """Convert the small Markdown subset used by the CV."""
     parts = re.split(r"(\*\*.*?\*\*)", text)
     converted = []
     for part in parts:

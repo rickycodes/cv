@@ -129,7 +129,7 @@ while IFS= read -r search_pr; do
     mv "${SUMMARY_JSON}.tmp" "$SUMMARY_JSON"
 done < <(jq -c '.[]' "$SEARCH_RESULTS")
 
-log "Generating résumé-focused Markdown report"
+log "Generating CV-focused Markdown report"
 
 python3 generate-github-report.py \
     --input "$SUMMARY_JSON" \
