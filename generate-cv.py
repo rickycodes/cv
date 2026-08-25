@@ -46,7 +46,7 @@ STYLE = {
     "header_rule_thickness": "1.2pt",
     "header_rule_before": "6pt",
     "header_rule_after": "7pt",
-    "role_gap": "4pt",
+    "role_gap": "14pt",
     "project_gap": "5pt",
     "entry_baseline_adjustment": "-1pt",
 }
