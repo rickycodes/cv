@@ -69,17 +69,20 @@ Built web applications, API integrations, and interactive marketing platforms fo
 
 ## Selected Projects
 
-### Oysterclip (Rust)
+### [Oysterclip (Rust)](https://github.com/rickycodes/oysterclip)
 
 Privacy-focused clipboard manager. Local text and image history. Native desktop interface.
 
-### Retrorecord (Rust)
+### [Retrorecord (Rust)](https://github.com/retrorecord/retrorecord)
 
 Rust reimplementation of Raspberry Pi gameplay recorder. Systems programming, performance, hardware integration.
 
 ### Open Source
 
-Contributor to Hyper, Beaker Browser, stdweb, winamp2-js, and other open-source web, Rust, and developer-tooling projects.
+Contributor to [Hyper](https://github.com/zeit/hyper/pull/2001#issuecomment-341775733), [Beaker Browser](https://github.com/beakerbrowser/beaker/commits?author=rickycodes), [stdweb](https://github.com/koute/stdweb/commits?author=rickycodes), [winamp2-js](https://github.com/captbaritone/winamp2-js/commits?author=rickycodes), and other open-source web, Rust, and developer-tooling projects.
+
+<!-- cta-gap -->
+Explore more projects on [GitHub](https://github.com/rickycodes).
 
 ## Community
 

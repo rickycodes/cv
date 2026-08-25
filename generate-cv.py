@@ -149,13 +149,18 @@ def latex_escape(text: str) -> str:
 
 def inline(text: str) -> str:
     """Convert the small Markdown subset used by the CV."""
-    parts = re.split(r"(\*\*.*?\*\*)", text)
+    parts = re.split(r"(\*\*.*?\*\*|\[.*?\]\(.*?\))", text)
     converted = []
     for part in parts:
         if part.startswith("**") and part.endswith("**"):
             converted.append(r"\textbf{" + latex_escape(part[2:-2]) + "}")
         else:
-            converted.append(latex_escape(part))
+            link = re.fullmatch(r"\[(.*?)\]\((.*?)\)", part)
+            if link:
+                label, url = link.groups()
+                converted.append(r"\href{" + latex_escape(url) + "}{" + inline(label) + "}")
+            else:
+                converted.append(latex_escape(part))
     return "".join(converted)
 
 
@@ -208,6 +213,11 @@ def render_body(lines):
                 output.append("\\section[Professional Experience continued]{Professional Experience \\textnormal{\\color{muted}\\small continued}}")
                 output.append("\\sectionrule")
             first_experience = True
+            continue
+
+        if line == "<!-- cta-gap -->":
+            flush_entry()
+            output.append(f"\\vspace{{{STYLE['project_gap']}}}")
             continue
 
         match = re.match(r"^## (.+)$", line)
