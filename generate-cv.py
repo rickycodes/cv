@@ -158,7 +158,9 @@ def inline(text: str) -> str:
             link = re.fullmatch(r"\[(.*?)\]\((.*?)\)", part)
             if link:
                 label, url = link.groups()
-                converted.append(r"\href{" + latex_escape(url) + "}{" + inline(label) + "}")
+                converted.append(
+                    r"\href{" + latex_escape(url) + r"}{\underline{" + inline(label) + r"}}"
+                )
             else:
                 converted.append(latex_escape(part))
     return "".join(converted)
