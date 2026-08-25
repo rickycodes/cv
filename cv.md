@@ -26,7 +26,7 @@ Senior software engineer with 15+ years building web and mobile products, shared
 Built MetaMask Mobile, Extension, Core, shared libraries, and engineering infrastructure for major cryptocurrency wallet.
 
 - Authored **447 pull requests** across **21 repositories**; merged **376** across products, shared libraries, and infrastructure.
-- Delivered [**EIP-1559 transaction support**](https://github.com/MetaMask/metamask-mobile/pull/2738): controller logic, gas estimation, typed transactions, [speed-up/cancellation flows](https://github.com/MetaMask/core/pull/535), tests, MetaMask Mobile integration.
+- Delivered [**EIP-1559 transaction support**](https://github.com/MetaMask/core/pull/521): controller logic, gas estimation, typed transactions, [speed-up/cancellation flows](https://github.com/MetaMask/core/pull/535), tests, MetaMask Mobile integration.
 - Shipped Mobile and Extension features across wallet state, transactions, networking, onboarding, browser compatibility, and platform behavior.
 - Modernized delivery systems with GitHub Actions, release automation, npm publishing, monorepo tooling, and reusable cross-repository workflows.
 - Led framework and dependency upgrades, including MetaMask Extension’s React 16 migration; preserved stability and test coverage.
