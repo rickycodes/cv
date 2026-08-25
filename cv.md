@@ -34,7 +34,7 @@ Built MetaMask Mobile, Extension, Core, shared libraries, and engineering infras
 
 **Selected technologies:** JavaScript, TypeScript, React Native, React, Node.js, GitHub Actions, Ethereum
 
-### Senior Developer | :Resolver | Nov 2018 -- Nov 2019
+### Senior Developer | Resolver | Nov 2018 -- Nov 2019
 
 Built enterprise governance, risk, compliance, and incident-management software.
 
