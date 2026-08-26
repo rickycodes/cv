@@ -64,6 +64,7 @@ STYLE = {
     "header_rule_before": "8pt",
     "header_rule_after": "8pt",
     "role_gap": "12pt",
+    "role_after": "4pt",
     "project_gap": "4pt",
     "entry_baseline_adjustment": "0pt",
 }
@@ -113,7 +114,7 @@ PREAMBLE_TEMPLATE = r"""\documentclass[@DOCUMENT_FONT_SIZE@,@PAPER_SIZE@]{articl
   \begin{tabularx}{\textwidth}{@{}X r@{}}
     {\headingfont\bfseries\large #1} & {\headingfont\small\color{muted} #3}\\[@ENTRY_BASELINE_ADJUSTMENT@]
     {\headingfont\bfseries\color{tealink} #2} &
-  \end{tabularx}\vspace{0.5pt}
+  \end{tabularx}\vspace{@ROLE_AFTER@}
 }
 \newcommand{\smallrole}[3]{%
   \begin{tabularx}{\textwidth}{@{}X r@{}}
@@ -300,7 +301,7 @@ def render_body(lines):
             flush_entry()
 
     body = "\n\n".join(output)
-    return body.replace("\\\\[-1pt]\n\n", "\\\\[-1pt]\n")
+    return body.replace("\\\\[0pt]\n\n", "\\\\[0pt]\n")
 
 
 def main():
