@@ -28,8 +28,12 @@ STYLE = {
     "rule": "A7D1D1",
     "paper": "FBFAF7",
     "teal": "167C80",
-    # Typography and spacing
+    # Typography and spacing. Leading is expressed as a ratio of the current
+    # font size, following a small baseline-grid scale rather than per-block
+    # one-off values.
     "line_spacing": "1.18",
+    "description_line_spacing": "1.28",
+    "list_line_spacing": "1.24",
     "paragraph_spacing": "2.5pt",
     "list_left_margin": "1.15em",
     "list_item_spacing": "3.5pt",
@@ -83,6 +87,11 @@ PREAMBLE_TEMPLATE = r"""\documentclass[@DOCUMENT_FONT_SIZE@,@PAPER_SIZE@]{articl
 \setlength{\parskip}{@PARAGRAPH_SPACING@}
 \setlist[itemize]{leftmargin=@LIST_LEFT_MARGIN@,itemsep=@LIST_ITEM_SPACING@,topsep=@LIST_ITEM_SPACING@,parsep=0pt}
 \setlength{\emergencystretch}{@EMERGENCY_STRETCH@}
+
+% Semantic leading tokens: descriptions get reading leading, while lists use
+% a slightly tighter rhythm that still has room for wrapped lines.
+\newcommand{\descriptionleading}{\setstretch{@DESCRIPTION_LINE_SPACING@}}
+\newcommand{\listleading}{\setstretch{@LIST_LINE_SPACING@}}
 
 \newcommand{\headingfont}{@HEADING_FONT_COMMAND@}
 \newcommand{\sectionrule}{\vspace{@SECTION_RULE_BEFORE@}\color{rule}\hrule height @RULE_THICKNESS@\color{ink}\vspace{@SECTION_RULE_AFTER@}}
@@ -192,13 +201,17 @@ def render_body(lines):
     def flush_paragraph():
         nonlocal paragraph
         if paragraph:
-            output.append(inline(" ".join(paragraph)))
+            output.append(
+                "\\begingroup\\descriptionleading "
+                + inline(" ".join(paragraph))
+                + "\\par\\endgroup"
+            )
             paragraph = []
 
     def flush_bullets():
         nonlocal bullets
         if bullets:
-            output.append("\\begin{itemize}")
+            output.append("\\begin{itemize}\\listleading")
             output.extend(f"  \\item {item}" for item in bullets)
             output.append("\\end{itemize}")
             bullets = []
