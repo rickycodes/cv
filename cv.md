@@ -73,7 +73,7 @@ Built web applications, API integrations, and interactive marketing platforms fo
 
 Privacy-focused clipboard manager. Local text and image history. Native desktop interface.
 
-### [Retrorecord (Rust)](https://github.com/retrorecord/retrorecord)
+### [Retrorecord (Rust)](https://github.com/rickycodes/retrorecord)
 
 Rust reimplementation of Raspberry Pi gameplay recorder. Systems programming, performance, hardware integration.
 
