@@ -42,9 +42,9 @@ STYLE = {
     # divide evenly into 4pt rows.
     #
     # Typography and spacing tokens.
-    "line_spacing": "1.18",
-    "description_line_spacing": "1.28",
-    "list_line_spacing": "1.24",
+    "line_spacing": "1.30",
+    "description_line_spacing": "1.40",
+    "list_line_spacing": "1.36",
     # Paragraphs are separated by their owning component's spacing token;
     # leaving the global paragraph gap at zero avoids double-spacing lists.
     "paragraph_spacing": "0pt",
@@ -52,7 +52,7 @@ STYLE = {
     "list_item_spacing": "4pt",
     "emergency_stretch": "2em",
     "name_font_size": "25",
-    "name_line_height": "27",
+    "name_line_height": "28",
     "title_font_size": "14",
     "title_line_height": "16",
     "section_before": "8pt",
