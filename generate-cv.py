@@ -65,6 +65,7 @@ PREAMBLE_TEMPLATE = r"""\documentclass[@DOCUMENT_FONT_SIZE@,@PAPER_SIZE@]{articl
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{hyperref}
+\usepackage[normalem]{ulem}
 \usepackage[nopatch=footnote]{microtype}
 \usepackage{tabularx}
 \usepackage{parskip}
@@ -123,7 +124,7 @@ PREAMBLE_TEMPLATE = r"""\documentclass[@DOCUMENT_FONT_SIZE@,@PAPER_SIZE@]{articl
 
 FOOTER = r"""
 \vfill
-{\headingfont\small\color{muted} References and additional project details available at \href{https://ricky.codes}{ricky.codes}.}
+{\headingfont\small\color{muted} Additional project details and contact information available at \href{https://ricky.codes}{ricky.codes}.}
 
 \end{document}
 """
@@ -168,7 +169,7 @@ def inline(text: str) -> str:
             if link:
                 label, url = link.groups()
                 converted.append(
-                    r"\href{" + latex_escape(url) + r"}{\underline{" + inline(label) + r"}}"
+                    r"\href{" + latex_escape(url) + r"}{\uline{" + inline(label) + r"}}"
                 )
             else:
                 converted.append(latex_escape(part))
