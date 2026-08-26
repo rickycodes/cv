@@ -28,31 +28,44 @@ STYLE = {
     "rule": "A7D1D1",
     "paper": "FBFAF7",
     "teal": "167C80",
-    # Typography and spacing. Leading is expressed as a ratio of the current
-    # font size, following a small baseline-grid scale rather than per-block
-    # one-off values.
+    # Design rules:
+    # - 4pt spacing scale: block gaps use multiples of 4pt, a common spacing
+    #   system in interface and editorial design.
+    # - Typographic leading: body text stays in the conventional 120-140%
+    #   range; headings remain tighter so hierarchy is carried by scale,
+    #   weight, and proximity rather than decoration.
+    # - Component ownership: paragraphs, lists, sections, and entries own
+    #   their spacing; the global paragraph gap stays zero to avoid stacking
+    #   unrelated spacing rules.
+    # This is a spacing scale with conventional leading, not a strict
+    # baseline grid: the 10pt body font and 12.8pt description leading do not
+    # divide evenly into 4pt rows.
+    #
+    # Typography and spacing tokens.
     "line_spacing": "1.18",
     "description_line_spacing": "1.28",
     "list_line_spacing": "1.24",
-    "paragraph_spacing": "2.5pt",
+    # Paragraphs are separated by their owning component's spacing token;
+    # leaving the global paragraph gap at zero avoids double-spacing lists.
+    "paragraph_spacing": "0pt",
     "list_left_margin": "1.15em",
-    "list_item_spacing": "3.5pt",
+    "list_item_spacing": "4pt",
     "emergency_stretch": "2em",
     "name_font_size": "25",
     "name_line_height": "27",
     "title_font_size": "14",
     "title_line_height": "16",
-    "section_before": "9pt",
-    "section_after": "1pt",
-    "section_rule_before": "1pt",
+    "section_before": "8pt",
+    "section_after": "0pt",
+    "section_rule_before": "4pt",
     "rule_thickness": "0.6pt",
-    "section_rule_after": "5pt",
+    "section_rule_after": "4pt",
     "header_rule_thickness": "1.2pt",
-    "header_rule_before": "6pt",
-    "header_rule_after": "7pt",
-    "role_gap": "14pt",
-    "project_gap": "5pt",
-    "entry_baseline_adjustment": "-1pt",
+    "header_rule_before": "8pt",
+    "header_rule_after": "8pt",
+    "role_gap": "12pt",
+    "project_gap": "4pt",
+    "entry_baseline_adjustment": "0pt",
 }
 
 
