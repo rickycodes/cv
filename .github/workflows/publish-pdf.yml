@@ -26,7 +26,7 @@ jobs:
         uses: TeX-Live/setup-texlive-action@v4
         with:
           version: "2022"
-          packages: scheme-medium plex fontaxes
+          packages: scheme-medium plex fontaxes mweights
 
       - name: Build PDF
         run: ./build-cv.sh
