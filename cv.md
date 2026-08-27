@@ -69,11 +69,11 @@ Built web applications, API integrations, and interactive marketing platforms fo
 
 ## Selected Projects
 
-### [Oysterclip (Rust)](https://github.com/rickycodes/oysterclip)
+### [Oysterclip](https://github.com/rickycodes/oysterclip)
 
 Privacy-focused clipboard manager. Local text and image history. Native desktop interface.
 
-### [Retrorecord (Rust)](https://github.com/rickycodes/retrorecord)
+### [Retrorecord](https://github.com/rickycodes/retrorecord)
 
 Rust reimplementation of Raspberry Pi gameplay recorder. Systems programming, performance, hardware integration.
 
