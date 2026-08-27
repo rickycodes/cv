@@ -19,6 +19,8 @@ Senior software engineer with 15+ years building web and mobile products, shared
 
 **Engineering:** GitHub Actions, CI/CD, release engineering, test automation, Linux, Docker, REST APIs
 
+**AI-assisted development:** Codex, GitHub Copilot, Claude, large language model tooling
+
 ## Professional Experience
 
 ### Senior Software Engineer | MetaMask | Nov 2019 -- Oct 2024
