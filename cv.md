@@ -30,7 +30,7 @@ Built MetaMask Mobile, Extension, Core, shared libraries, and engineering infras
 - Shipped Mobile and Extension features across wallet state, transactions, networking, onboarding, browser compatibility, and platform behavior.
 - Modernized delivery systems with GitHub Actions, release automation, npm publishing, monorepo tooling, and reusable cross-repository workflows.
 - Led framework and dependency upgrades, including MetaMask Extension’s React 16 migration; preserved stability and test coverage.
-- Worked across Mobile, Extension, Core, QA, Security, Product, and Infrastructure in security-sensitive systems.
+- Worked across Mobile, Extension, Core, QA, Security, Product, and Infrastructure teams in security-sensitive systems.
 
 **Selected technologies:** JavaScript, TypeScript, React Native, React, Node.js, GitHub Actions, Ethereum
 
