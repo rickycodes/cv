@@ -59,7 +59,7 @@ STYLE = {
     "section_after": "0pt",
     "section_rule_before": "4pt",
     "rule_thickness": "0.6pt",
-    "section_rule_after": "4pt",
+    "section_rule_after": "8pt",
     "header_rule_thickness": "1.2pt",
     "header_rule_before": "8pt",
     "header_rule_after": "8pt",
@@ -109,7 +109,7 @@ PREAMBLE_TEMPLATE = r"""\documentclass[@DOCUMENT_FONT_SIZE@,@PAPER_SIZE@]{articl
 \newcommand{\listleading}{\setstretch{@LIST_LINE_SPACING@}}
 
 \newcommand{\headingfont}{@HEADING_FONT_COMMAND@}
-\newcommand{\sectionrule}{\vspace{@SECTION_RULE_BEFORE@}\color{rule}\hrule height @RULE_THICKNESS@\color{ink}\vspace{@SECTION_RULE_AFTER@}}
+\newcommand{\sectionrule}[1][@SECTION_RULE_AFTER@]{\vspace{@SECTION_RULE_BEFORE@}\color{rule}\hrule height @RULE_THICKNESS@\color{ink}\vspace{#1}}
 \newcommand{\role}[3]{%
   \begin{tabularx}{\textwidth}{@{}X r@{}}
     {\headingfont\bfseries\large #1} & {\headingfont\small\color{muted} #3}\\[@ENTRY_BASELINE_ADJUSTMENT@]
