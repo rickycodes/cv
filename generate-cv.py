@@ -138,7 +138,7 @@ PREAMBLE_TEMPLATE = r"""\documentclass[@DOCUMENT_FONT_SIZE@,@PAPER_SIZE@]{articl
 
 FOOTER = r"""
 \vfill
-{\headingfont\small\color{muted} Additional project details and contact information available at \href{https://ricky.codes}{ricky.codes}.}
+{\headingfont\small\color{muted} Additional project details and contact information available at \href{https://ricky.codes}{ricky.codes}.\par\vspace{4pt} \href{https://github.com/rickycodes/cv/blob/main/cv.md}{Read as Markdown}}
 
 \end{document}
 """
