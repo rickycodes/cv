@@ -321,7 +321,10 @@ def render_body(lines):
                 output.append('<article class="entry">')
                 if " @ " in title:
                     name, organization = title.split(" @ ", 1)
-                    heading = f"{inline(name)} <span class=\"company\">@ {inline(organization)}</span>"
+                    heading = (
+                        f'<span>{inline(name)} '
+                        f'<span class="company">@ {inline(organization)}</span></span>'
+                    )
                 else:
                     heading = inline(title)
                 output.append(f'<h3 class="entry-heading">{heading}</h3>')
