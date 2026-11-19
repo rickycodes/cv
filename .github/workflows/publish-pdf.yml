@@ -1,4 +1,4 @@
-name: Publish CV PDF
+name: Publish CV
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
     paths:
       - "cv.md"
       - "generate-cv.py"
+      - "generate-cv-html.py"
       - "build-cv.sh"
       - ".github/workflows/publish-pdf.yml"
   workflow_dispatch:
@@ -39,7 +40,7 @@ jobs:
           echo "TeX Live cache hit: ${{ steps.setup-texlive.outputs.cache-hit }}"
           echo "TeX Live version: ${{ steps.setup-texlive.outputs.version }}"
 
-      - name: Build PDF
+      - name: Build PDF and HTML
         run: ./build-cv.sh
 
       - name: Checkout website
@@ -49,16 +50,19 @@ jobs:
           token: ${{ secrets.WWW_REPO_TOKEN }}
           path: www
 
-      - name: Publish PDF
+      - name: Publish CV
         run: |
+          rm -rf www/static/cv
+          mkdir -p www/static/cv
           cp ricky-miller-cv.pdf www/static/cv.pdf
+          cp cv-site/index.html www/static/cv/index.html
           cd www
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add static/cv.pdf
+          git add static/cv.pdf static/cv/index.html
           if git diff --cached --quiet; then
-            echo "CV PDF is unchanged."
+            echo "CV files are unchanged."
             exit 0
           fi
-          git commit -m "chore: update CV PDF"
+          git commit -m "chore: update CV"
           git push
