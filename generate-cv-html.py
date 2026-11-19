@@ -67,7 +67,7 @@ main {
 .identity {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
 }
 
@@ -78,7 +78,7 @@ h1 {
 }
 
 .location {
-  margin: 0;
+  margin: 0 0 0 1rem;
   font-size: .9rem;
 }
 
@@ -115,10 +115,6 @@ h1 {
 .experience .entry + .entry { margin-top: 3rem; }
 
 .entry-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: .75rem 1rem;
-  align-items: baseline;
   margin: 0 0 .75rem;
   font-size: 1.15rem;
   line-height: 1.4;
@@ -128,12 +124,13 @@ h1 {
 strong { font-weight: 500; }
 
 .entry-heading .dates {
+  display: inline;
+  margin-left: .75rem;
   font-size: .82rem;
   font-weight: 400;
-  text-align: right;
-  white-space: nowrap;
-}
+  white-space: normal;
 
+}
 p { margin: .75rem 0 0; }
 .entry > p:first-of-type { margin-top: 0; }
 
@@ -156,12 +153,8 @@ li + li { margin-top: .5rem; }
 
 @media (max-width: 620px) {
   .identity { align-items: flex-start; flex-direction: column; }
-  .entry-heading { display: block; }
-  .entry-heading .dates {
-    display: block;
-    margin-top: .25rem;
-    text-align: left;
-  }
+  .location { margin-left: 0; }
+  .entry-heading .dates { margin-left: 0; }
 }
 
 @media print {
