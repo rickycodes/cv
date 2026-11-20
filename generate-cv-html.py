@@ -90,7 +90,6 @@ h1 {
   font-size: .82rem;
 }
 
-.contact > a::before,
 .contact > span::before {
   content: '·';
   margin-right: .4rem;
@@ -149,6 +148,8 @@ li + li { margin-top: .5rem; }
   margin-top: 3rem;
   font-size: .78rem;
 }
+.footer-separator { margin: 0 .25rem; }
+.source { white-space: nowrap; }
 
 .page-break { display: none; }
 
@@ -156,12 +157,18 @@ li + li { margin-top: .5rem; }
   .identity { align-items: flex-start; flex-direction: column; }
   .location { margin-left: 0; }
   .contact { display: block; }
-  .contact > a,
   .contact > span {
     display: block;
     margin-top: .35rem;
   }
-  .contact > a:first-child { margin-top: 0; }
+  .contact > span:first-child { margin-top: 0; }
+  .site-footer > a,
+  .site-footer > .source {
+    display: block;
+    margin-top: .35rem;
+  }
+  .site-footer > a:first-child { margin-top: 0; }
+  .footer-separator { display: none; }
   .entry-heading .role-company { display: block; }
   .entry-heading .company { display: block; }
   .role-company .company::before { content: ''; }
@@ -239,7 +246,7 @@ def header(metadata):
     <p class="location">{inline(metadata['location'])}</p>
   </div>
   <nav class="contact" aria-label="Contact">
-    <a href="mailto:{escape(email, quote=True)}">{escape(email)}</a>
+    <span><a href="mailto:{escape(email, quote=True)}">{escape(email)}</a></span>
     <span><a href="{escape(website, quote=True)}">{escape(website.removeprefix('https://'))}</a></span>
     <span><a href="{escape(github, quote=True)}">{escape(github.removeprefix('https://'))}</a></span>
   </nav>
@@ -357,9 +364,11 @@ def main():
     body = header(metadata) + "\n<main>\n" + render_body(lines) + "\n</main>"
     body += """
 <footer class="site-footer">
-  <a href="https://ricky.codes">ricky.codes</a> ·
-  <a href="../cv.pdf">Download PDF</a> ·
-  Updated from <a href="https://github.com/rickycodes/cv/blob/main/cv.md">cv.md</a>.
+  <a href="https://ricky.codes">ricky.codes</a>
+  <span class="footer-separator">·</span>
+  <a href="../cv.pdf">Download PDF</a>
+  <span class="footer-separator">·</span>
+  <span class="source">Updated from <a href="https://github.com/rickycodes/cv/blob/main/cv.md">cv.md</a>.</span>
 </footer>"""
     OUTPUT.parent.mkdir(exist_ok=True)
     OUTPUT.write_text(
