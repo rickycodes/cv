@@ -75,7 +75,7 @@ h1 {
 }
 
 .location {
-  margin: .25rem 0 0;
+  margin: .5rem 0 0;
   font-size: .9rem;
 }
 
@@ -99,7 +99,7 @@ h1 {
 
 
 .title {
-  margin: 1rem 0 0;
+  margin: 2rem 0 0;
   font-size: 1.2rem;
   line-height: 1.2;
 }
