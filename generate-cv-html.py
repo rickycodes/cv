@@ -90,7 +90,8 @@ h1 {
   font-size: .82rem;
 }
 
-.contact span::before {
+.contact > a::before,
+.contact > span::before {
   content: '·';
   margin-right: .4rem;
 }
@@ -121,6 +122,7 @@ h1 {
 }
 
 .entry-heading .role { font-weight: 500; }
+.role-company .company::before { content: ' | '; }
 strong { font-weight: 500; }
 
 .entry-heading .dates {
@@ -129,7 +131,6 @@ strong { font-weight: 500; }
   font-size: .82rem;
   font-weight: 400;
   white-space: normal;
-
 }
 p { margin: .75rem 0 0; }
 .entry > p:first-of-type { margin-top: 0; }
@@ -154,7 +155,21 @@ li + li { margin-top: .5rem; }
 @media (max-width: 620px) {
   .identity { align-items: flex-start; flex-direction: column; }
   .location { margin-left: 0; }
-  .entry-heading .dates { margin-left: 0; }
+  .contact { display: block; }
+  .contact > a,
+  .contact > span {
+    display: block;
+    margin-top: .35rem;
+  }
+  .contact > a:first-child { margin-top: 0; }
+  .entry-heading .role-company { display: block; }
+  .entry-heading .company { display: block; }
+  .role-company .company::before { content: ''; }
+  .entry-heading .dates {
+    display: block;
+    margin-top: .35rem;
+    margin-left: 0;
+  }
 }
 
 @media print {
@@ -299,8 +314,9 @@ def render_body(lines):
             role, company, dates = (inline(value) for value in match.groups())
             output.append('<article class="entry">')
             output.append(
-                f'<h3 class="entry-heading"><span><span class="role">{role}</span>'
-                f' <span class="company">| {company}</span></span>'
+                f'<h3 class="entry-heading"><span class="role-company">'
+                f'<span class="role">{role}</span>'
+                f'<span class="company">{company}</span></span>'
                 f'<time class="dates">{dates}</time></h3>'
             )
             entry_open = True
