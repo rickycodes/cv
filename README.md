@@ -52,7 +52,8 @@ On pushes to `main` that change the CV source or build tooling, GitHub Actions:
 
 The HTML CV keeps the site’s typefaces while using a deliberately minimal presentation:
 
-- SuisseIntl for body text and GT America Mono for headings and metadata, loaded from the reference site’s public font assets
+- SuisseIntl for headings and body text, GT America Mono for metadata
+- A centered reading column with responsive gutters and heading sizes
 - Black text on a white background
 - No decorative background, borders, color treatment, or extra controls
 - Date ranges use an en dash (`–`); the Markdown source keeps `--` for the LaTeX build

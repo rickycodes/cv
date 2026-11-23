@@ -40,12 +40,14 @@ STYLESHEET = """
 html { scroll-behavior: smooth; }
 
 body {
-  margin: 2em;
+  max-width: 50rem;
+  margin: clamp(1.5rem, 5vw, 4rem) auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
   color: #000;
   background: #fff;
   font-family: 'SuisseIntl', sans-serif;
-  font-size: 1rem;
-  line-height: 1.4;
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
 a {
@@ -53,36 +55,30 @@ a {
   text-underline-offset: .15em;
 }
 
-h1, h2, h3, .location, .contact, .title, .dates, .site-footer {
+.location, .contact, .dates, .site-footer {
   font-family: 'GT America Mono', monospace;
   font-weight: 400;
 }
 
 .site-header { margin-bottom: 2rem; }
-main {
-  font-size: 1.1rem;
-  line-height: 1.55;
-}
-
-.identity {
-  display: block;
-}
+h1, h2, h3 { font-weight: 500; }
 
 h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
   line-height: 1.1;
+  letter-spacing: -.025em;
 }
 
 .location {
   margin: .5rem 0 0;
-  font-size: .9rem;
+  font-size: .9375rem;
 }
 
 .contact {
   display: block;
   margin: .75rem 0 0;
-  font-size: .82rem;
+  font-size: .9375rem;
 }
 
 .contact > span {
@@ -99,17 +95,17 @@ h1 {
 
 
 .title {
-  margin: 2rem 0 0;
-  font-size: 1.2rem;
-  line-height: 1.2;
+  margin: .5rem 0 0;
+  font-size: 1.125rem;
+  line-height: 1.4;
 }
 
 .section { margin-top: 2rem; }
 
 .section h2 {
   margin: 0 0 .75rem;
-  font-size: 1.35rem;
-  line-height: 1.35;
+  font-size: clamp(1.375rem, 3vw, 1.625rem);
+  line-height: 1.25;
 }
 
 .entry { margin-top: 1.2rem; }
@@ -118,8 +114,8 @@ h1 {
 
 .entry-heading {
   margin: 0 0 .75rem;
-  font-size: 1.15rem;
-  line-height: 1.4;
+  font-size: 1.1875rem;
+  line-height: 1.35;
 }
 
 .entry-heading .role { font-weight: 500; }
@@ -129,7 +125,7 @@ strong { font-weight: 500; }
 .entry-heading .dates {
   display: block;
   margin-top: .35rem;
-  font-size: .82rem;
+  font-size: .9375rem;
   font-weight: 400;
   white-space: normal;
 }
@@ -148,7 +144,7 @@ li + li { margin-top: .5rem; }
 
 .site-footer {
   margin-top: 3rem;
-  font-size: .78rem;
+  font-size: .9375rem;
 }
 .footer-separator { margin: 0 .25rem; }
 .source { white-space: nowrap; }
@@ -232,6 +228,7 @@ def header(metadata):
     return f"""<header class="site-header">
   <div class="identity">
     <h1>{inline(metadata['name'])}</h1>
+    <h2 class="title">{inline(metadata['title'])}</h2>
     <p class="location">{inline(metadata['location'])}</p>
   </div>
   <nav class="contact" aria-label="Contact">
@@ -239,7 +236,6 @@ def header(metadata):
     <span><a href="{escape(website, quote=True)}">{escape(website.removeprefix('https://'))}</a></span>
     <span><a href="{escape(github, quote=True)}">{escape(github.removeprefix('https://'))}</a></span>
   </nav>
-    <h2 class="title">{inline(metadata['title'])}</h2>
 </header>"""
 
 
